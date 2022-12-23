@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "272364646653",
+    "project_id": "mlaku-bf8b2",
+    "storage_bucket": "mlaku-bf8b2.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:272364646653:android:1f2be7c9f45583155d0e94",
+        "android_client_info": {
+          "package_name": "com.example.mlaku"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "272364646653-vitjkg73n0c0k5s59ln5k6lj3nocpula.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCzOFcjPbx9naWGcgsn1wt0O3X4cvYdxxA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "272364646653-vitjkg73n0c0k5s59ln5k6lj3nocpula.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
