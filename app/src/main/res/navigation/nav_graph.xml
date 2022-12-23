@@ -2,22 +2,27 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/nav_main"
-    app:startDestination="@id/firstFragment">
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/FirstFragment">
 
     <fragment
-        android:id="@+id/firstFragment"
-        android:name="com.example.mlaku.fragment.fragmentHome"
-        android:label="fragment_first"
-        tools:layout="@layout/fragment_home" />
-    <fragment
-        android:id="@+id/secondFragment"
-        android:name="com.example.mlaku.fragment.fragmentUser"
-        android:label="fragment_second"
-        tools:layout="@layout/fragment_user" />
-    <fragment
-        android:id="@+id/thirdFragment"
+        android:id="@+id/FirstFragment"
         android:name="com.example.mlaku.fragment.MapsFragment"
-        android:label="fragment_third"
-        tools:layout="@layout/fragment_maps" />
+        android:label="@string/first_fragment_label"
+        tools:layout="@layout/fragment_maps" >
+
+        <action
+            android:id="@+id/action_FirstFragment_to_SecondFragment"
+            app:destination="@id/nav_graph" />
+    </fragment>
+<!--    <fragment-->
+<!--        android:id="@+id/SecondFragment"-->
+<!--        android:name="com.example.mlaku.SecondFragment"-->
+<!--        android:label="@string/second_fragment_label"-->
+<!--        tools:layout="@layout/fragment_second" >-->
+
+<!--        <action-->
+<!--            android:id="@+id/action_SecondFragment_to_FirstFragment"-->
+<!--            app:destination="@id/FirstFragment" />-->
+<!--    </fragment>-->
 </navigation>
