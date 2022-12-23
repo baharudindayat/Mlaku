@@ -2,32 +2,25 @@ package com.example.mlaku
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.example.mlaku.adapter.ViewPagerAdapter
+import androidx.navigation.NavController
+import androidx.navigation.NavGraph
+import androidx.navigation.Navigation
+import androidx.navigation.ui.NavigationUI.setupWithNavController
 import com.example.mlaku.databinding.ActivityMainBinding
-import com.example.mlaku.fragment.HomeFragment
-import com.example.mlaku.fragment.UserFragment
 
 class MainActivity : AppCompatActivity() {
 
-    lateinit var binding :ActivityMainBinding
+    private lateinit var binding: ActivityMainBinding
+    private lateinit var navController: NavController
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityMainBinding.inflate(layoutInflater)
+        binding= ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        setupTab()
-    }
+        navController=Navigation.findNavController(this,R.id.activity_main_nav_host_fragment)
+        setupWithNavController(binding.bottomNavigationView,navController)
 
-    private fun setupTab() {
-        val adapter = ViewPagerAdapter(supportFragmentManager)
-        adapter.addFragment(HomeFragment(),"Home")
-        adapter.addFragment(UserFragment(),"Profile")
 
-        binding.viewPager.adapter = adapter
-        binding.tabs.setupWithViewPager(binding.viewPager)
-
-        binding.tabs.getTabAt(0)!!.setIcon(R.drawable.ic_home)
-        binding.tabs.getTabAt(1)!!.setIcon(R.drawable.ic_user)
     }
 }
