@@ -4,8 +4,8 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.mlaku.adapter.ViewPagerAdapter
 import com.example.mlaku.databinding.ActivityMainBinding
-import com.example.mlaku.fragment.HomeFragment
-import com.example.mlaku.fragment.UserFragment
+import com.example.mlaku.fragment.fragmentHome
+import com.example.mlaku.fragment.fragmentUser
 
 class MainActivity : AppCompatActivity() {
 
@@ -21,8 +21,8 @@ class MainActivity : AppCompatActivity() {
 
     private fun setupTab() {
         val adapter = ViewPagerAdapter(supportFragmentManager)
-        adapter.addFragment(HomeFragment(),"Home")
-        adapter.addFragment(UserFragment(),"Profile")
+        adapter.addFragment(fragmentHome(),"Home")
+        adapter.addFragment(fragmentUser(),"Profile")
 
         binding.viewPager.adapter = adapter
         binding.tabs.setupWithViewPager(binding.viewPager)
