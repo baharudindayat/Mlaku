@@ -13,6 +13,7 @@ class UserlistActivity : AppCompatActivity() {
     private lateinit var userArrayList : ArrayList<User>
 
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_user_list)

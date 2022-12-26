@@ -3,8 +3,11 @@ package com.example.mlaku
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
+import com.google.firebase.database.core.Context
 
 class MyAdapter(private val userList : ArrayList<User>) : RecyclerView.Adapter<MyAdapter.MyViewHolder>() {
 
@@ -23,7 +26,7 @@ class MyAdapter(private val userList : ArrayList<User>) : RecyclerView.Adapter<M
 
         holder.firstName.text = currentitem.nama
         holder.lastName.text = currentitem.desc
-        holder.age.text = currentitem.locmaps
+        Glide.with(holder.image).load(userList[position].img).into(holder.image)
 
     }
 
@@ -37,7 +40,7 @@ class MyAdapter(private val userList : ArrayList<User>) : RecyclerView.Adapter<M
 
         val firstName : TextView = itemView.findViewById(R.id.tvfirstName)
         val lastName : TextView = itemView.findViewById(R.id.tvlastName)
-        val age : TextView = itemView.findViewById(R.id.tvage)
+        val image : ImageView = itemView.findViewById(R.id.tvImage)
 
     }
 

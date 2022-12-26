@@ -20,10 +20,25 @@
             android:layout_gravity="center_vertical"
             android:orientation="horizontal">
 
+            <ImageView
+                android:id="@+id/tvImage"
+                android:layout_width="match_parent"
+                android:layout_height="150dp"></ImageView>
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:orientation="horizontal">
+
             <TextView
                 android:id="@+id/tvfirstName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+
                 android:layout_marginStart="0dp"
                 android:text="Yogyakarta"
                 android:textColor="@color/black"
@@ -37,49 +52,52 @@
             android:layout_gravity="center_vertical"
             android:orientation="horizontal">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Description : "
-                android:textColor="@color/black"
-                android:textSize="10dp"
-                android:textStyle="bold"/>
+<!--            <TextView-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="Description : "-->
+<!--                android:textColor="@color/black"-->
+<!--                android:textSize="10dp"-->
+<!--                android:textStyle="bold"/>-->
 
             <TextView
                 android:id="@+id/tvlastName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
+                android:paddingTop="10dp"
+                android:layout_marginStart="0dp"
+                android:layout_margin="3pt"
+                android:paddingLeft="3pt"
                 android:text="Stark"
                 android:textColor="@color/black"
                 android:textSize="10sp"/>
 
         </LinearLayout>
 
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:orientation="horizontal">
+<!--        <LinearLayout-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_gravity="center_vertical"-->
+<!--            android:orientation="horizontal">-->
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Locmaps : "
-                android:textColor="@color/black"
-                android:textSize="10sp"
-                android:textStyle="bold"/>
+<!--            <TextView-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="Locmaps : "-->
+<!--                android:textColor="@color/black"-->
+<!--                android:textSize="10sp"-->
+<!--                android:textStyle="bold"/>-->
 
-            <TextView
-                android:id="@+id/tvage"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:text="20"
-                android:textColor="@color/black"
-                android:textSize="10sp"/>
+<!--            <TextView-->
+<!--                android:id="@+id/tvage"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginStart="8dp"-->
+<!--                android:text="20"-->
+<!--                android:textColor="@color/black"-->
+<!--                android:textSize="10sp"/>-->
 
-        </LinearLayout>
+<!--        </LinearLayout>-->
 
 
     </LinearLayout>
