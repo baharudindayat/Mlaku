@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/teal_700"
+    android:background="@color/blue"
     android:padding="30dp"
     tools:context=".LoginActivity">
 
@@ -28,7 +28,7 @@
                 android:backgroundTint="@color/black"
                 android:text="Register"
                 android:textAlignment="center"
-                android:textColor="@color/teal_700"
+                android:textColor="#00BCD4"
                 android:textSize="24sp"
                 android:textStyle="bold" />
 
@@ -51,7 +51,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
-                android:backgroundTint="@color/teal_700"
+                android:backgroundTint="#00BCD4"
                 android:text="Register" />
 
             <TextView
@@ -69,7 +69,7 @@
                 android:backgroundTint="@color/black"
                 android:text="Login"
                 android:textAlignment="center"
-                android:textColor="@color/teal_700"
+                android:textColor="#00BCD4"
                 android:textStyle="bold" />
 
         </LinearLayout>
