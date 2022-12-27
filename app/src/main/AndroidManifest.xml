@@ -69,6 +69,8 @@
         <activity
             android:name=".MapsActivity"
             android:exported="false" />
+        <activity android:name=".About" />
+        <activity android:name=".DetailPlace" />
     </application>
 
 </manifest>
