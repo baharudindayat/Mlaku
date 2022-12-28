@@ -34,8 +34,8 @@ class DetailPlace : AppCompatActivity() {
             startActivity(mapsIntent)
         }
 
-        actionbar!!.title =tName.toString()
-        actionbar.setDisplayHomeAsUpEnabled(true)
+//        actionbar!!.title =tName.toString()
+//        actionbar.setDisplayHomeAsUpEnabled(true)
 
         Glide.with(this)
             .load(tImg)

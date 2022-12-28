@@ -20,10 +20,10 @@ class LoginActivity : AppCompatActivity() {
 
         auth = FirebaseAuth.getInstance()
 
-//        binding.forgotPassword.setOnClickListener {
-//            val intent = Intent(this, ResetPasswordActivity::class.java)
-//            startActivity(intent)
-//        }
+        binding.forgotPassword.setOnClickListener {
+            val intent = Intent(this, ResetPasswordActivity::class.java)
+            startActivity(intent)
+        }
 
         binding.tvToRegister.setOnClickListener {
             val intent = Intent(this, RegisterActivity::class.java)

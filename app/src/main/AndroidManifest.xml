@@ -14,19 +14,29 @@
         android:theme="@style/Theme.Mlaku"
         tools:targetApi="tiramisu">
         <activity
+            android:name=".ResetPassword"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".ResetPasswordActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
             android:name=".UserlistActivity"
             android:exported="false">
-
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
             android:name=".MainActivity"
-            android:exported="false"
-            android:theme="@style/Theme.Mlaku.NoActionBar">
-
-
+            android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
@@ -71,6 +81,7 @@
             android:exported="false" />
         <activity android:name=".About" />
         <activity android:name=".DetailPlace" />
+        <activity android:name=".CreditActivity" />
     </application>
 
 </manifest>
