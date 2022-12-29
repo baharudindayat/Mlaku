@@ -14,7 +14,7 @@
         android:theme="@style/Theme.Mlaku"
         tools:targetApi="tiramisu">
         <activity
-            android:name=".ResetPassword"
+            android:name=".Profile"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
@@ -54,7 +54,7 @@
         -->
         <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value="YOUR_API_KEY" />
+            android:value="AIzaSyDCEnpNpvTgUU7OB2D78agh0ZizejFw6kI" />
 
         <activity
             android:name=".LoginActivity"

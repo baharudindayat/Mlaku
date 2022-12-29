@@ -30,7 +30,7 @@ class DetailPlace : AppCompatActivity() {
         val tGeo = intent.getStringExtra(EXTRA_GEO)
 
         fabMaps.setOnClickListener(){
-            val mapsIntent = Intent(Intent.ACTION_VIEW, Uri.parse("geo:$tGeo"))
+            val mapsIntent = Intent(this,MapsActivity::class.java)
             startActivity(mapsIntent)
         }
 

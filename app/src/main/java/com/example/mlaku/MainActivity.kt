@@ -51,19 +51,19 @@ class MainActivity : AppCompatActivity() {
 
             }
 
-            R.id.action_credit -> {
-                moveToCredit()
-            }
+//            R.id.action_credit -> {
+//                moveToCredit()
+//            }
         }
     }
 
     private fun moveToAbout() {
-        val moveIntent = Intent(this@MainActivity,About::class.java)
+        val moveIntent = Intent(this@MainActivity,Profile::class.java)
         startActivity(moveIntent)
     }
 
-    private fun moveToCredit() {
-        val moveIntentCredit = Intent(this@MainActivity,CreditActivity::class.java)
-        startActivity(moveIntentCredit)
-    }
+//    private fun moveToCredit() {
+//        val moveIntentCredit = Intent(this@MainActivity,Profile::class.java)
+//        startActivity(moveIntentCredit)
+//    }
 }
