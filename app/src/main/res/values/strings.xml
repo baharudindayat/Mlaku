@@ -2,12 +2,12 @@
     <string name="app_name" translatable="false">Wisata Yogyakarta</string>
     <string name="places_name" translatable="false">Nama Tempat</string>
     <string name="detail" translatable="false">Detail</string>
-    <string name="about" translatable="false">Tentang Saya</string>
+    <string name="about" translatable="false">Profile</string>
     <string name="favorite" translatable="false">Favorite</string>
     <string name="share" translatable="false">Share</string>
     <string name="lokasi" translatable="false">lokasi</string>
     <string name="profile" translatable="false">Profile</string>
-    <string name="dev_name" translatable="false">Nurhadi</string>
+    <string name="dev_name" translatable="false">Kelompok FND</string>
     <string name="job" translatable="false">SAP PP Consultant &amp; Web Developer </string>
     <string name="verified" translatable="false">Verified User</string>
     <string name="ratings" translatable="false">Stars Rating</string>

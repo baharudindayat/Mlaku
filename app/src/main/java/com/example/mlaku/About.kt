@@ -1,51 +1,90 @@
 package com.example.mlaku
 
-import android.graphics.Color
-import android.os.Bundle
-import android.view.View
-import android.widget.LinearLayout
-import android.widget.TextView
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.content.ContextCompat
-import kotlin.math.exp
+import android.os.Bundle
+import android.util.Patterns
+import android.view.View
+import android.widget.Toast
+import com.google.firebase.auth.EmailAuthProvider
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException
+import com.example.mlaku.databinding.ActivityAboutBinding
+import java.util.regex.Pattern
 
 class About : AppCompatActivity() {
+    lateinit var binding : ActivityAboutBinding
+    lateinit var auth : FirebaseAuth
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_about)
-        val actionbar = supportActionBar
-        actionbar!!.title ="Profile"
-        actionbar.setDisplayHomeAsUpEnabled(true)
+        binding = ActivityAboutBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
-        val personalInfo:LinearLayout = findViewById(R.id.personal_info)
-        val experience:LinearLayout = findViewById(R.id.experience)
-        val tvInfo:TextView = findViewById(R.id.personalinfobtn)
-        val tvExp:TextView = findViewById(R.id.experiencebtn)
+        auth = FirebaseAuth.getInstance()
+        val user = auth.currentUser
 
-        /*Setting Tab Info pas Loading*/
-        personalInfo.visibility = View.VISIBLE
-        experience.visibility = View.GONE
-        tvInfo.setTextColor(Color.parseColor("#356859"))
-        tvExp.setTextColor(Color.DKGRAY)
+        binding.cvChangeEmailInputPass.visibility = View.VISIBLE
+        binding.cvChangeEmail.visibility = View.GONE
 
-        tvInfo.setOnClickListener(){
-            personalInfo.visibility = View.VISIBLE
-            experience.visibility = View.GONE
-            tvInfo.setTextColor(Color.parseColor("#356859"))
-            tvExp.setTextColor(Color.DKGRAY)
+        binding.btnNext.setOnClickListener {
+            var pass = binding.edtChangeEmailPassword.text.toString()
+
+            if (pass.isEmpty()) {
+                binding.edtChangeEmailPassword.error = "Password Harus Terisi"
+                binding.edtChangeEmailPassword.requestFocus()
+                return@setOnClickListener
+            }
+
+            // cek password
+            user.let {
+                val userCredential = EmailAuthProvider.getCredential(it?.email!!,pass)
+                it.reauthenticate(userCredential).addOnCompleteListener { task ->
+                    when {
+                        task.isSuccessful -> {
+                            binding.cvChangeEmailInputPass.visibility = View.GONE
+                            binding.cvChangeEmail.visibility = View.VISIBLE
+                        }
+                        task.exception is FirebaseAuthInvalidCredentialsException -> {
+                            binding.edtChangeEmailPassword.error = "Password Salah"
+                            binding.edtChangeEmailPassword.requestFocus()
+                        }
+                        else -> {
+                            Toast.makeText(this, "${task.exception?.message}", Toast.LENGTH_SHORT).show()
+                        }
+                    }
+                }
+            }
         }
-        tvExp.setOnClickListener(){
-            experience.visibility = View.VISIBLE
-            personalInfo.visibility = View.GONE
 
-            tvInfo.setTextColor(Color.DKGRAY)
-            tvExp.setTextColor(Color.parseColor("#356859"))
+        binding.btnChangeEmail.setOnClickListener newEmail@{
+            var newEmail = binding.edtChangeEmail.text.toString()
+
+            if (newEmail.isEmpty()){
+                binding.edtChangeEmail.error = "Email Harus Terisi"
+                binding.edtChangeEmail.requestFocus()
+                return@newEmail
+            }
+
+            if (!Patterns.EMAIL_ADDRESS.matcher(newEmail).matches()) {
+                binding.edtChangeEmail.error = "Email Tidak Valid"
+                binding.edtChangeEmail.requestFocus()
+                return@newEmail
+            }
+
+            user?.let {
+                user.updateEmail(newEmail).addOnCompleteListener {
+                    if (it.isSuccessful) {
+                        Toast.makeText(this, "Email Berhasil Diubah", Toast.LENGTH_SHORT).show()
+                        startActivity(Intent(this, About::class.java))
+                        finish()
+                    } else {
+                        Toast.makeText(this, "${it.exception?.message}", Toast.LENGTH_SHORT).show()
+                    }
+                }
+            }
+
         }
 
-    }
-
-    override fun onSupportNavigateUp(): Boolean {
-        onBackPressed()
-        return true
     }
 }
