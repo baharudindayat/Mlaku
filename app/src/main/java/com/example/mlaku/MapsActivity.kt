@@ -41,10 +41,34 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
         mMap = googleMap
 
         // Add a marker in Sydney and move the camera
-        val yahaha = LatLng(7.7519579, 115.491372)
-        val sydney = LatLng(-7.7519579, 110.491372)
-        mMap.addMarker(MarkerOptions().position(sydney).title("Candi Prambanan"))
-        mMap.addMarker(MarkerOptions().position(yahaha).title("Candi Prambanannnnnnn"))
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney))
+        val kalibiru = LatLng(-7.807401, 110.129268)
+        val candi = LatLng(-7.7519579, 110.491372)
+        val bunker = LatLng(-7.582920, 110.447680)
+        val breksi = LatLng(-7.781571, 110.504582)
+        val malio = LatLng(-7.792626, 110.365841)
+        val tugu = LatLng(-7.782920, 110.367085)
+        val tamansari = LatLng(-7.810075, 110.359477)
+        val bukbin = LatLng(-7.845843, 110.479845)
+        val parangtritis = LatLng(-8.024608, 110.329804)
+        val ratuboko = LatLng(-7.770546, 110.489414)
+        val indrayanti = LatLng(-8.150379, 110.612577)
+        val sermo = LatLng(-7.825758, 110.116417)
+
+
+
+        mMap.addMarker(MarkerOptions().position(candi).title("Candi Prambanan"))
+        mMap.addMarker(MarkerOptions().position(kalibiru).title("Kalibiru"))
+        mMap.addMarker(MarkerOptions().position(bunker).title("Bunker Kaliadem"))
+        mMap.addMarker(MarkerOptions().position(breksi).title("Tebing Breksi"))
+        mMap.addMarker(MarkerOptions().position(malio).title("Malioboro"))
+        mMap.addMarker(MarkerOptions().position(tugu).title("Tugu Jogja"))
+        mMap.addMarker(MarkerOptions().position(bukbin).title("Bukit Bintang"))
+        mMap.addMarker(MarkerOptions().position(parangtritis).title("Pantai Parangtritis"))
+        mMap.addMarker(MarkerOptions().position(ratuboko).title("Candi Ratu Boko"))
+        mMap.addMarker(MarkerOptions().position(indrayanti).title("Pantai Indrayanti"))
+        mMap.addMarker(MarkerOptions().position(sermo).title("Waduk Sermo"))
+        mMap.addMarker(MarkerOptions().position(tamansari).title("Tamansari"))
+
+        mMap.moveCamera(CameraUpdateFactory.newLatLng(candi))
     }
 }

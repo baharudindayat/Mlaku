@@ -1,16 +1,15 @@
 package com.example.mlaku
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Patterns
 import android.view.View
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
+import com.example.mlaku.databinding.ActivityAboutBinding
 import com.google.firebase.auth.EmailAuthProvider
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException
-import com.example.mlaku.databinding.ActivityAboutBinding
-import java.util.regex.Pattern
 
 class About : AppCompatActivity() {
     lateinit var binding : ActivityAboutBinding
@@ -28,7 +27,7 @@ class About : AppCompatActivity() {
         binding.cvChangeEmail.visibility = View.GONE
 
         binding.btnNext.setOnClickListener {
-            var pass = binding.edtChangeEmailPassword.text.toString()
+            val pass = binding.edtChangeEmailPassword.text.toString()
 
             if (pass.isEmpty()) {
                 binding.edtChangeEmailPassword.error = "Password Harus Terisi"
@@ -58,7 +57,7 @@ class About : AppCompatActivity() {
         }
 
         binding.btnChangeEmail.setOnClickListener newEmail@{
-            var newEmail = binding.edtChangeEmail.text.toString()
+            val newEmail = binding.edtChangeEmail.text.toString()
 
             if (newEmail.isEmpty()){
                 binding.edtChangeEmail.error = "Email Harus Terisi"
