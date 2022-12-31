@@ -76,7 +76,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:backgroundTint="@color/black"
-                android:text="Register Here"
+                android:text="@string/reg"
                 android:textAlignment="center"
                 android:textColor="#00BCD4"
                 android:textStyle="bold" />
