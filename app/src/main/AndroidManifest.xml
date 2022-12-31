@@ -85,7 +85,6 @@
             android:exported="false" />
         <activity android:name=".About" />
         <activity android:name=".DetailPlace" />
-        <activity android:name=".CreditActivity" />
     </application>
 
 </manifest>
