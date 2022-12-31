@@ -35,6 +35,7 @@ class Profile : AppCompatActivity() {
         val intent = Intent(this,LoginActivity::class.java)
         Toast.makeText(this,"Silahkan Login Kembali", Toast.LENGTH_SHORT).show()
         startActivity(intent)
+        finish()
     }
     private  fun btnDelete(){
         val currentUser = FirebaseAuth.getInstance().currentUser
@@ -44,6 +45,7 @@ class Profile : AppCompatActivity() {
                     val delete = Intent(this,LoginActivity::class.java)
                     Toast.makeText(this,"Akun dihapus, silahkan buat kembali", Toast.LENGTH_SHORT).show()
                     startActivity(delete)
+                    finish()
                 }
             }
 
