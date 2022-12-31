@@ -1,7 +1,13 @@
 package com.example.mlaku
 
+import android.Manifest
+import android.content.pm.PackageManager
+import android.location.Location
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.core.app.ActivityCompat
+import com.google.android.gms.location.FusedLocationProviderClient
+import com.google.android.gms.location.LocationServices
 
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
@@ -9,36 +15,50 @@ import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
-import com.example.mlaku.databinding.ActivityMapsBinding
 
 class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
 
-    private lateinit var mMap: GoogleMap
-    private lateinit var binding: ActivityMapsBinding
+    var currentLocation : Location? = null
+    var fusedLocationProviderClient: FusedLocationProviderClient? = null
+    val REQUEST_CODE = 101
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_maps)
 
-        binding = ActivityMapsBinding.inflate(layoutInflater)
-        setContentView(binding.root)
+        fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(this)
 
-        // Obtain the SupportMapFragment and get notified when the map is ready to be used.
-        val mapFragment = supportFragmentManager
-            .findFragmentById(R.id.map) as SupportMapFragment
-        mapFragment.getMapAsync(this)
+
+        fetchLocation()
+
     }
 
-    /**
-     * Manipulates the map once available.
-     * This callback is triggered when the map is ready to be used.
-     * This is where we can add markers or lines, add listeners or move the camera. In this case,
-     * we just add a marker near Sydney, Australia.
-     * If Google Play services is not installed on the device, the user will be prompted to install
-     * it inside the SupportMapFragment. This method will only be triggered once the user has
-     * installed Google Play services and returned to the app.
-     */
+    private fun fetchLocation() {
+        if (ActivityCompat.checkSelfPermission(this,Manifest.permission.ACCESS_FINE_LOCATION)
+            != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this,Manifest.permission.ACCESS_COARSE_LOCATION)
+            != PackageManager.PERMISSION_GRANTED)
+        {
+            ActivityCompat.requestPermissions(this, arrayOf(Manifest.permission.ACCESS_FINE_LOCATION), REQUEST_CODE)
+            return
+        }
+
+        val task = fusedLocationProviderClient!!.lastLocation
+        task.addOnSuccessListener { location ->
+            if (location != null){
+                currentLocation = location
+                val supportMapFragment = (supportFragmentManager.findFragmentById(R.id.map) as SupportMapFragment?)
+                supportMapFragment!!.getMapAsync(this@MapsActivity)
+            }
+        }
+    }
+
     override fun onMapReady(googleMap: GoogleMap) {
-        mMap = googleMap
+        val latLng = LatLng(currentLocation!!.latitude, currentLocation!!.longitude)
+        val markerOptions = MarkerOptions().position(latLng).title("Lokasi Sekarang")
+        googleMap.animateCamera(CameraUpdateFactory.newLatLng(latLng))
+        googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(latLng,15f))
+        googleMap.addMarker(markerOptions)
+
 
         // Add a marker in Sydney and move the camera
         val kalibiru = LatLng(-7.807401, 110.129268)
@@ -56,19 +76,28 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
 
 
 
-        mMap.addMarker(MarkerOptions().position(candi).title("Candi Prambanan"))
-        mMap.addMarker(MarkerOptions().position(kalibiru).title("Kalibiru"))
-        mMap.addMarker(MarkerOptions().position(bunker).title("Bunker Kaliadem"))
-        mMap.addMarker(MarkerOptions().position(breksi).title("Tebing Breksi"))
-        mMap.addMarker(MarkerOptions().position(malio).title("Malioboro"))
-        mMap.addMarker(MarkerOptions().position(tugu).title("Tugu Jogja"))
-        mMap.addMarker(MarkerOptions().position(bukbin).title("Bukit Bintang"))
-        mMap.addMarker(MarkerOptions().position(parangtritis).title("Pantai Parangtritis"))
-        mMap.addMarker(MarkerOptions().position(ratuboko).title("Candi Ratu Boko"))
-        mMap.addMarker(MarkerOptions().position(indrayanti).title("Pantai Indrayanti"))
-        mMap.addMarker(MarkerOptions().position(sermo).title("Waduk Sermo"))
-        mMap.addMarker(MarkerOptions().position(tamansari).title("Tamansari"))
+        googleMap.addMarker(MarkerOptions().position(candi).title("Candi Prambanan"))
+        googleMap.addMarker(MarkerOptions().position(kalibiru).title("Kalibiru"))
+        googleMap.addMarker(MarkerOptions().position(bunker).title("Bunker Kaliadem"))
+        googleMap.addMarker(MarkerOptions().position(breksi).title("Tebing Breksi"))
+        googleMap.addMarker(MarkerOptions().position(malio).title("Malioboro"))
+        googleMap.addMarker(MarkerOptions().position(tugu).title("Tugu Jogja"))
+        googleMap.addMarker(MarkerOptions().position(bukbin).title("Bukit Bintang"))
+        googleMap.addMarker(MarkerOptions().position(parangtritis).title("Pantai Parangtritis"))
+        googleMap.addMarker(MarkerOptions().position(ratuboko).title("Candi Ratu Boko"))
+        googleMap.addMarker(MarkerOptions().position(indrayanti).title("Pantai Indrayanti"))
+        googleMap.addMarker(MarkerOptions().position(sermo).title("Waduk Sermo"))
+        googleMap.addMarker(MarkerOptions().position(tamansari).title("Tamansari"))
+    }
 
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(candi))
+    override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<out String>, grantResults: IntArray) {
+        when(requestCode){
+            REQUEST_CODE -> {
+                if (grantResults.size > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED){
+                    fetchLocation()
+                }
+            }
+        }
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
     }
 }
