@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/teal_700"
+    android:background="@color/warna4"
     android:padding="30dp"
     tools:context=".LoginActivity">
 
@@ -21,13 +21,14 @@
             android:orientation="vertical"
             android:padding="30dp">
 
-            <de.hdodenhof.circleimageview.CircleImageView
+            <ImageView
                 android:id="@+id/cvi_user"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
+                android:background="@drawable/ic_baseline_account_circle_24"
                 android:layout_gravity="center">
+                </ImageView>
 
-            </de.hdodenhof.circleimageview.CircleImageView>
             <!--                android:background="@drawable/ic_account_circle" />-->
 
             <TextView
@@ -38,7 +39,7 @@
                 android:backgroundTint="@color/black"
                 android:text="Profile"
                 android:textAlignment="center"
-                android:textColor="@color/teal_700"
+                android:textColor="@color/warna7"
                 android:textSize="24sp"
                 android:textStyle="bold" />
 
@@ -75,21 +76,24 @@
                 android:id="@+id/btn_changeEmail"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:backgroundTint="#00BCD4"
+                android:textColor="@color/white"
+                android:backgroundTint="@color/warna6"
                 android:text="Change Email" />
 
             <Button
                 android:id="@+id/btn_logout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:backgroundTint="@color/teal_700"
+                android:textColor="@color/white"
+                android:backgroundTint="@color/warna6"
                 android:text="Logout" />
 
             <Button
                 android:id="@+id/btn_delete"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:backgroundTint="@color/teal_700"
+                android:backgroundTint="@color/warna6"
+                android:textColor="@color/white"
                 android:text="Delete Account" />
 
         </LinearLayout>

@@ -1,5 +1,4 @@
 package com.example.mlaku
-
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
@@ -32,9 +31,13 @@ class Profile : AppCompatActivity() {
     private fun btnLogout() {
         auth = FirebaseAuth.getInstance()
         auth.signOut()
-        val intent = Intent(this,LoginActivity::class.java)
         Toast.makeText(this,"Silahkan Login Kembali", Toast.LENGTH_SHORT).show()
-        startActivity(intent)
+        val i = Intent(applicationContext, LoginActivity::class.java)        // Specify any activity here e.g. home or splash or login etc
+        i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
+        i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK)
+        i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+        i.putExtra("EXIT", true)
+        startActivity(i)
         finish()
     }
     private  fun btnDelete(){
@@ -45,13 +48,14 @@ class Profile : AppCompatActivity() {
                     val delete = Intent(this,LoginActivity::class.java)
                     Toast.makeText(this,"Akun dihapus, silahkan buat kembali", Toast.LENGTH_SHORT).show()
                     startActivity(delete)
+                    val i = Intent(applicationContext, LoginActivity::class.java)        // Specify any activity here e.g. home or splash or login etc
+                    i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
+                    i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK)
+                    i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+                    i.putExtra("EXIT", true)
+                    startActivity(i)
                     finish()
                 }
             }
-
     }
-
-
-
-
 }

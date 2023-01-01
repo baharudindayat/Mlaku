@@ -2,8 +2,8 @@
     <!-- Base application theme. -->
     <style name="Theme.Mlaku" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
         <!-- Primary brand color. -->
-        <item name="colorPrimary">#673AB7</item>
-        <item name="colorPrimaryVariant">#673AB7</item>
+        <item name="colorPrimary">@color/warna6</item>
+        <item name="colorPrimaryVariant">@color/warna7</item>
         <item name="colorOnPrimary">@color/white</item>
         <!-- Secondary brand color. -->
         <item name="colorSecondary">#03A9F4</item>

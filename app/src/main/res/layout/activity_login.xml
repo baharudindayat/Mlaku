@@ -2,9 +2,9 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
+    android:layout_width="wrap_content"
     android:layout_height="match_parent"
-    android:background="#00BCD4"
+    android:background="@color/warna4"
     android:padding="30dp"
     tools:context=".LoginActivity">
 
@@ -25,10 +25,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:backgroundTint="@color/black"
+                android:backgroundTint="@color/good_grey"
                 android:text="Login"
                 android:textAlignment="center"
-                android:textColor="#00BCD4"
+                android:textColor="@color/good_grey"
                 android:textSize="24sp"
                 android:textStyle="bold" />
 
@@ -51,7 +51,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
-                android:backgroundTint="@color/black"
+                android:backgroundTint="@color/good_grey"
                 android:text="Forgot Password?"
                 android:textAlignment="textEnd" />
 
@@ -60,14 +60,14 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
-                android:backgroundTint="#00BCD4"
+                android:backgroundTint="@color/warna6"
                 android:text="Login" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="30dp"
-                android:backgroundTint="@color/black"
+                android:backgroundTint="@color/good_grey"
                 android:text="New User?"
                 android:textAlignment="center" />
 
@@ -75,10 +75,10 @@
                 android:id="@+id/tv_to_register"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:backgroundTint="@color/black"
+                android:backgroundTint="@color/good_grey"
                 android:text="@string/reg"
                 android:textAlignment="center"
-                android:textColor="#00BCD4"
+                android:textColor="@color/warna6"
                 android:textStyle="bold" />
 
         </LinearLayout>

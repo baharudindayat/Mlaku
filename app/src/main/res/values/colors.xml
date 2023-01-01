@@ -11,4 +11,18 @@
     <color name="lightgrey">#EEEEEE</color>
     <color name="black">#000000</color>
     <color name="teal_700">#03A9F4</color>
+
+
+    <color name="warna1">#422919</color>
+    <color name="warna2">#fff8dc</color>
+    <color name="warna3">#ffe9a1</color>
+    <color name="warna4">#aeba85</color>
+    <color name="warna5">#797f4f</color>
+    <color name="warna6">#a5906b</color>
+    <color name="warna7">#826d4e</color>
+    <color name="warna8">#bcbcbc</color>
+    <color name="warna9">#8c8884</color>
+    <color name="warna10">#99cac8</color>
+
+
 </resources>

@@ -29,12 +29,12 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="end|bottom"
-                android:src="@drawable/ic_maps"
+                android:src="@drawable/ic_baseline_place_24"
                 android:layout_margin="15dp"
                 app:fabSize="normal"
                 app:borderWidth="0dp"
                 app:elevation="6dp"
-                android:backgroundTint="@color/colorPrimary"
+                android:backgroundTint="@color/warna4"
                 android:id="@+id/fab_maps"
                 android:alpha="1"/>
         </FrameLayout>
