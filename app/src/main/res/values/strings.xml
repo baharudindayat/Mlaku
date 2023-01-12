@@ -5,7 +5,9 @@
     <string name="about" translatable="false">Profile</string>
     <string name="favorite" translatable="false">Favorite</string>
     <string name="share" translatable="false">Share</string>
+    <string name="destinasi" translatable="false">Destinasi</string>
     <string name="lokasi" translatable="false">lokasi</string>
+    <string name="harga" translatable="false">Harga</string>
     <string name="profile" translatable="false">Profile</string>
     <string name="dev_name" translatable="false">Kelompok FND</string>
     <string name="job" translatable="false">SAP PP Consultant &amp; Web Developer </string>

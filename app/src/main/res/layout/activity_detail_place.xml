@@ -48,10 +48,28 @@
             android:background="@color/white">
 
             <TextView
+                android:id="@+id/tv_destinasi"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/destinasi"
+                android:textSize="18sp"
+                android:paddingBottom="6dp"
+                android:background="@drawable/border_set"
+                />
+            <TextView
                 android:id="@+id/tv_location"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/lokasi"
+                android:textSize="18sp"
+                android:paddingBottom="6dp"
+                android:background="@drawable/border_set"
+                />
+            <TextView
+                android:id="@+id/tv_harga"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/harga"
                 android:textSize="18sp"
                 android:paddingBottom="6dp"
                 android:background="@drawable/border_set"

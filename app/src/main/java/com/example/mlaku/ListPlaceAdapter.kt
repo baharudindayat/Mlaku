@@ -31,6 +31,7 @@ class ListPlaceAdapter(private val listPlaces: ArrayList<Place>): RecyclerView.A
             .apply(RequestOptions().override(55, 55))
             .into(holder.imgPhoto)
         holder.tvName.text = place.name
+        holder.tvHarga.text = place.harga
         holder.tvDetail.text = place.detail
         holder.tvlokasi.text = place.location
 
@@ -42,6 +43,7 @@ class ListPlaceAdapter(private val listPlaces: ArrayList<Place>): RecyclerView.A
             moveDetail.putExtra(DetailPlace.EXTRA_NAME, place.name)
             moveDetail.putExtra(DetailPlace.EXTRA_PHOTO, place.photo)
             moveDetail.putExtra(DetailPlace.EXTRA_LOCATION, place.location)
+            moveDetail.putExtra(DetailPlace.EXTRA_HARGA, place.harga)
             moveDetail.putExtra(DetailPlace.EXTRA_DETAIL, place.detail)
             moveDetail.putExtra(DetailPlace.EXTRA_GEO,place.geo)
 
@@ -54,6 +56,7 @@ class ListPlaceAdapter(private val listPlaces: ArrayList<Place>): RecyclerView.A
     inner class ListViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         var imgPhoto: ImageView = itemView.findViewById(R.id.img_item_photo)
         var tvName: TextView = itemView.findViewById(R.id.tv_item_name)
+        var tvHarga: TextView = itemView.findViewById(R.id.tv_item_harga)
         var tvDetail: TextView = itemView.findViewById(R.id.tv_item_detail)
         var tvlokasi: TextView = itemView.findViewById(R.id.tv_item_lokasi)
     }

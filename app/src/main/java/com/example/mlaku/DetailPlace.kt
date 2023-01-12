@@ -18,7 +18,9 @@ class DetailPlace : AppCompatActivity() {
 
 
         val imgDetailPhoto:ImageView = findViewById(R.id.img_item_photo)
+        val tvSetName:TextView = findViewById(R.id.tv_destinasi)
         val tvSetLocation:TextView = findViewById(R.id.tv_location)
+        val tvSetHarga:TextView = findViewById(R.id.tv_harga)
         val tvSetDetail:TextView = findViewById(R.id.tv_detail)
         val fabMaps:FloatingActionButton = findViewById(R.id.fab_maps)
 
@@ -26,6 +28,7 @@ class DetailPlace : AppCompatActivity() {
         val tName  = intent.getStringExtra(EXTRA_NAME)
         val tImg = intent.getIntExtra(EXTRA_PHOTO,0)
         val tLoc = intent.getStringExtra(EXTRA_LOCATION)
+        val tHarga = intent.getStringExtra(EXTRA_HARGA)
         val tDetail = intent.getStringExtra(EXTRA_DETAIL)
         val tGeo = intent.getStringExtra(EXTRA_GEO)
 
@@ -41,6 +44,8 @@ class DetailPlace : AppCompatActivity() {
             .load(tImg)
             .apply(RequestOptions())
             .into(imgDetailPhoto)
+        tvSetName.text = "$tName"
+        tvSetHarga.text = "Harga : $tHarga"
         tvSetLocation.text = "Lokasi : $tLoc"
         tvSetDetail.text = tDetail
     }
@@ -49,6 +54,7 @@ class DetailPlace : AppCompatActivity() {
         const val EXTRA_NAME = "extra_name"
         const val EXTRA_PHOTO = "extra_photo"
         const val EXTRA_LOCATION = "extra_location"
+        const val EXTRA_HARGA = "extra_harga"
         const val EXTRA_DETAIL = "extra_detail"
         const val EXTRA_GEO = "extra_geo"
     }

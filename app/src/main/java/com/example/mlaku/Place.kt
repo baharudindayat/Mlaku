@@ -5,5 +5,6 @@ data class Place(
     var detail: String = "",
     var photo: Int = 0,
     var location:String="",
+    var harga:String="",
     var geo:String =""
 )

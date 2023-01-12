@@ -13,9 +13,6 @@ class UserlistActivity : AppCompatActivity() {
     private lateinit var userArrayList : ArrayList<User>
 
 
-
-
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_user_list)
@@ -30,36 +27,21 @@ class UserlistActivity : AppCompatActivity() {
     }
 
     private fun getUserData() {
-
         dbref = FirebaseDatabase.getInstance().getReference("wisata")
-
         dbref.addValueEventListener(object : ValueEventListener{
-
             override fun onDataChange(snapshot: DataSnapshot) {
-
                 if (snapshot.exists()){
-
                     for (userSnapshot in snapshot.children){
-
-
                         val user = userSnapshot.getValue(User::class.java)
                         userArrayList.add(user!!)
-
                     }
-
                     userRecyclerview.adapter = MyAdapter(userArrayList)
-
-
                 }
-
             }
 
             override fun onCancelled(error: DatabaseError) {
                 TODO("Not yet implemented")
             }
-
-
         })
-
     }
 }

@@ -27,10 +27,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
         setContentView(R.layout.activity_maps)
 
         fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(this)
-
-
         fetchLocation()
-
     }
 
     private fun fetchLocation() {
