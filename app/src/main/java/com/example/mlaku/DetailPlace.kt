@@ -45,7 +45,7 @@ class DetailPlace : AppCompatActivity() {
             .apply(RequestOptions())
             .into(imgDetailPhoto)
         tvSetName.text = "$tName"
-        tvSetHarga.text = "Harga : $tHarga"
+        tvSetHarga.text = "HTM : $tHarga"
         tvSetLocation.text = "Lokasi : $tLoc"
         tvSetDetail.text = tDetail
     }
