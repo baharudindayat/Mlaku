@@ -10,22 +10,33 @@ import androidx.appcompat.app.AlertDialog
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import java.util.*
+import android.widget.ImageView
+import android.widget.PopupMenu
+import android.widget.Toast
+import androidx.fragment.app.Fragment
+import com.google.android.material.bottomnavigation.BottomNavigationView
+import java.lang.Exception
 
 class MainActivity : AppCompatActivity() {
     private lateinit var rvPlace: RecyclerView
     private var list: ArrayList<Place> = arrayListOf()
+    lateinit var bottomNav : BottomNavigationView
+
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
 
         rvPlace = findViewById(R.id.rv_places)
         rvPlace.setHasFixedSize(true)
 
         list.addAll(PlacesData.listData)
         showRecyclerList()
+
+
     }
+
 
     private fun showRecyclerList() {
         rvPlace.layoutManager = LinearLayoutManager(this)
@@ -34,7 +45,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
-        menuInflater.inflate(R.menu.menu_main, menu)
+        menuInflater.inflate(R.menu.nav_menu, menu)
         return super.onCreateOptionsMenu(menu)
     }
 
@@ -46,15 +57,28 @@ class MainActivity : AppCompatActivity() {
     private fun setMode(selectedMode: Int) {
 
         when (selectedMode) {
+            R.id.home -> {
+                moveToHome()
+            }
+            R.id.note -> {
+                moveToNote()
+            }
             R.id.action_about -> {
                 moveToAbout()
-
             }
-
             R.id.action_credit -> {
                 moveToCredit()
             }
+
         }
+    }
+    private fun moveToHome() {
+        val moveIntent = Intent(this@MainActivity,MainActivity::class.java)
+        startActivity(moveIntent)
+    }
+    private fun moveToNote() {
+        val moveIntent = Intent(this@MainActivity,UserlistActivity::class.java)
+        startActivity(moveIntent)
     }
 
     private fun moveToAbout() {
@@ -66,4 +90,8 @@ class MainActivity : AppCompatActivity() {
         val moveIntentCredit = Intent(this@MainActivity,MapsActivity::class.java)
         startActivity(moveIntentCredit)
     }
+
+
+
+
 }

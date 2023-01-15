@@ -13,8 +13,15 @@ class Profile : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         binding = ActivityProfileBinding.inflate(layoutInflater)
+        auth = FirebaseAuth.getInstance()
+        val user = auth.currentUser
+
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
+
+        if (user != null){
+            binding.edtEmail.setText(user.email)
+        }
 
         binding.btnChangeEmail.setOnClickListener {
             val intent = Intent(this, About::class.java)
@@ -39,6 +46,7 @@ class Profile : AppCompatActivity() {
         i.putExtra("EXIT", true)
         startActivity(i)
         finish()
+
     }
     private  fun btnDelete(){
         val currentUser = FirebaseAuth.getInstance().currentUser

@@ -27,7 +27,7 @@ class MyAdapter(private val userList : ArrayList<User>) : RecyclerView.Adapter<M
 
         holder.firstName.text = currentitem.nama
         holder.lastName.text = currentitem.desc
-        Glide.with(holder.image).load(userList[position].img).into(holder.image)
+
 
     }
 
@@ -41,7 +41,7 @@ class MyAdapter(private val userList : ArrayList<User>) : RecyclerView.Adapter<M
 
         val firstName : TextView = itemView.findViewById(R.id.tvfirstName)
         val lastName : TextView = itemView.findViewById(R.id.tvlastName)
-        val image : ImageView = itemView.findViewById(R.id.tvImage)
+
 
     }
 

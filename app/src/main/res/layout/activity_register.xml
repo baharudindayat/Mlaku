@@ -51,7 +51,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
-                android:backgroundTint="@color/warna6"
+                android:backgroundTint="@color/teal_700"
                 android:text="Register" />
 
             <TextView
@@ -69,7 +69,7 @@
                 android:backgroundTint="@color/black"
                 android:text="Login"
                 android:textAlignment="center"
-                android:textColor="@color/warna6"
+                android:textColor="@color/teal_700"
                 android:textStyle="bold" />
 
         </LinearLayout>
