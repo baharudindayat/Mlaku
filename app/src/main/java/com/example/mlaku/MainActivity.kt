@@ -60,9 +60,6 @@ class MainActivity : AppCompatActivity() {
             R.id.home -> {
                 moveToHome()
             }
-            R.id.note -> {
-                moveToNote()
-            }
             R.id.action_about -> {
                 moveToAbout()
             }
@@ -74,10 +71,6 @@ class MainActivity : AppCompatActivity() {
     }
     private fun moveToHome() {
         val moveIntent = Intent(this@MainActivity,MainActivity::class.java)
-        startActivity(moveIntent)
-    }
-    private fun moveToNote() {
-        val moveIntent = Intent(this@MainActivity,UserlistActivity::class.java)
         startActivity(moveIntent)
     }
 
